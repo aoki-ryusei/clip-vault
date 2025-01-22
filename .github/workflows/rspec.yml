@@ -44,11 +44,13 @@ jobs:
 
       - name: Yarn install
         run: yarn install --check-files
+      
+      - name: check bundle
+        run: witch bundle
 
       - name: Database create and migrate
         run: |
           cd src/
-          witch bundle
           cp config/database.yml.ci config/database.yml
           vendor/bundle exec rails db:create RAILS_ENV=test
           vendor/bundle exec rails db:migrate RAILS_ENV=test
