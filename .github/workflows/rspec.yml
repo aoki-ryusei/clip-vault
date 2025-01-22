@@ -25,7 +25,6 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3.6
-          bundler-cache: true
 
       - name: Cache node modules
         uses: actions/cache@v4
@@ -44,9 +43,6 @@ jobs:
 
       - name: Yarn install
         run: yarn install --check-files
-      
-      - name: check bundle
-        run: witch bundle
 
       - name: Database create and migrate
         run: |
