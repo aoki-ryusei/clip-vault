@@ -48,6 +48,7 @@ jobs:
       - name: Database create and migrate
         run: |
           cd src/
+          witch bundle
           cp config/database.yml.ci config/database.yml
           vendor/bundle exec rails db:create RAILS_ENV=test
           vendor/bundle exec rails db:migrate RAILS_ENV=test
