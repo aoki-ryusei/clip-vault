@@ -39,7 +39,7 @@ jobs:
         run: |
           gem install bundler
           bundle config set path 'src/vendor/bundle'
-          bundle install --jobs 4 --retry 3
+          src/vendor/bundle install --jobs 4 --retry 3
 
       - name: Yarn install
         run: yarn install --check-files
