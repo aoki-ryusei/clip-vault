@@ -9,7 +9,7 @@ RSpec.describe TokenStorage, type: :model do
 
   it 'tokenは必須であること' do
     token_storage.token = nil
-    expect(token_storage).to be_valid
+    expect(token_storage).to_not be_valid
   end
 
   it 'expired_atは必須であること' do
