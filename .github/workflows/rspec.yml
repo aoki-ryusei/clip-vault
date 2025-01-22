@@ -74,6 +74,4 @@ jobs:
 
       - name: Run rubocop
         run: | 
-          cd src/
-          bundle config set path 'vendor/bundle'
           bundle exec rubocop
