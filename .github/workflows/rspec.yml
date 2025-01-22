@@ -38,8 +38,8 @@ jobs:
       - name: Bundler and gem install
         run: |
           gem install bundler
-          bundle config set path 'src/vendor/bundle'
-          src/vendor/bundle install --jobs 4 --retry 3
+          bundle config set path 'vendor/bundle'
+          bundle install --jobs 4 --retry 3
 
       - name: Yarn install
         run: yarn install --check-files
