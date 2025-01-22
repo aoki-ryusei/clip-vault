@@ -49,8 +49,8 @@ jobs:
         run: |
           cd src/
           cp config/database.yml.ci config/database.yml
-          bundle exec rails db:create RAILS_ENV=test
-          bundle exec rails db:migrate RAILS_ENV=test
+          vendor/bundle exec rails db:create RAILS_ENV=test
+          vendor/bundle exec rails db:migrate RAILS_ENV=test
 
       - name: Run rspec
         run: bundle exec rspec
