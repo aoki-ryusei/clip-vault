@@ -37,6 +37,7 @@ jobs:
 
       - name: Bundler and gem install
         run: |
+          cd src/
           gem install bundler
           bundle config set path 'vendor/bundle'
           bundle install --jobs 4 --retry 3
