@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe TokenStorage, type: :model do
-  token_storage = FactoryBot.build(:token_storage) 
+  token_storage = FactoryBot.build(:token_storage)
 
   it '有効であること' do
     expect(token_storage).to be_valid
