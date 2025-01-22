@@ -55,5 +55,6 @@ jobs:
 
       - name: Run rspec
         run: |
+          cd src/
           bundle config set path 'vendor/bundle'
           bundle exec rspec
