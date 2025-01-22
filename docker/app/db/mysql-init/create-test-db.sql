@@ -1,2 +1,2 @@
-CREATE DATABASE IF NOT EXISTS `rails_tutorial_db_test`;
-grant all on `rails_tutorial_db_test`.* to 'local'@'%';
+CREATE DATABASE IF NOT EXISTS `clip_vault_db_test`;
+grant all on `clip_vault_db_test`.* to 'local'@'%';
