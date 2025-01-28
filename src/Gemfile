@@ -49,6 +49,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Use Pry as your rails console
+  gem "pry-rails"
 end
 
 group :development do
