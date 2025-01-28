@@ -1,6 +1,11 @@
 namespace :streamer do
-  task :get => :environment do
+  task :get, [:streamer_code] => :environment do |_task, args|
     include TwitchHelper
-    get_streamers(["fantasista_jp", "fps_shaka"])
+    include Logging
+
+    log_debug("[streamer get tasks] start, args count: #{args.to_a.count}", "tasks")
+    streamer_codes = args.to_a
+    response = get_streamers(streamer_codes)
+    log_debug("[streamer get tasks] end", "tasks")
   end
 end

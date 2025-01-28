@@ -3,7 +3,8 @@ require 'uri'
 
 module TwitchApi
   # 認証情報
-  class Auth < BaseApi
+  class Auth
+    include Logging
     # 認証情報を取得する
     # 
     # @return [Hash] 認証情報
@@ -38,7 +39,8 @@ module TwitchApi
   end
 
   # ストリーマー情報
-  class Streamer < BaseApi
+  class Streamer
+    include Logging
     # ストリーマー情報を取得する
     # 
     # @param [String] streamer_codes ストリーマーコード
