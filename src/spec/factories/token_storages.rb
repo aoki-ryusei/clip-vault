@@ -4,6 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  expired_at :datetime
+#  name       :string(255)
 #  token      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
