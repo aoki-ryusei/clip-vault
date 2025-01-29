@@ -52,6 +52,8 @@ group :development, :test do
 
   # Use Pry as your rails console
   gem "pry-rails"
+
+  gem 'chronic_duration', '~> 0.10.6'
 end
 
 group :development do

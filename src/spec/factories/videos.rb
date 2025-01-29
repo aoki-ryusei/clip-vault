@@ -13,19 +13,19 @@
 #  view_count         :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  streamers_id       :bigint           not null
+#  streamer_id        :bigint           not null
 #
 # Indexes
 #
-#  index_videos_on_streamers_id  (streamers_id)
+#  index_videos_on_streamer_id  (streamer_id)
 #
 # Foreign Keys
 #
-#  fk_rails_...  (streamers_id => streamers.id)
+#  fk_rails_...  (streamer_id => streamers.id)
 #
 FactoryBot.define do
   factory :video do
-    streamers { nil }
+    streamer { nil }
     title { "MyString" }
     description { "MyString" }
     video_created_at { "2025-01-30 00:04:55" }

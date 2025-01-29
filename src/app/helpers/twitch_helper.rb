@@ -18,7 +18,6 @@ module TwitchHelper
     last = false
     while last == false do
       response = videosApi.get(streamer_id, period, token, response[:cursor])
-      binding.pry
       videos.concat(response[:videos])
       #  TODO: 回しすぎないように2回まで回す
       last = true

@@ -17,6 +17,8 @@
 #  index_streamers_on_code_and_name  (code,name) UNIQUE
 #
 class Streamer < ApplicationRecord
+  has_many :videos, dependent: :destroy
+
   validates :code, presence: true
   validates :name, presence: true
 end

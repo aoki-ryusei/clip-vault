@@ -32,7 +32,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_29_150455) do
   end
 
   create_table "videos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "streamers_id", null: false
+    t.bigint "streamer_id", null: false
     t.string "title"
     t.string "description"
     t.datetime "video_created_at"
@@ -43,8 +43,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_29_150455) do
     t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["streamers_id"], name: "index_videos_on_streamers_id"
+    t.index ["streamer_id"], name: "index_videos_on_streamer_id"
   end
 
-  add_foreign_key "videos", "streamers", column: "streamers_id"
+  add_foreign_key "videos", "streamers"
 end

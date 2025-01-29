@@ -1,7 +1,7 @@
 class CreateVideos < ActiveRecord::Migration[8.0]
   def change
     create_table :videos do |t|
-      t.references :streamers, null: false, foreign_key: true
+      t.references :streamer, null: false, foreign_key: true
       t.string :title
       t.string :description
       t.datetime :video_created_at
