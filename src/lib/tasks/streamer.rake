@@ -1,5 +1,5 @@
 namespace :streamer do
-  task :get, [:streamer_code] => :environment do |_task, args|
+  task :get, [ :streamer_code ] => :environment do |_task, args|
     include TwitchHelper
     include Logging
 

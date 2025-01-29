@@ -20,8 +20,8 @@ module Logging
   def set_logger(path)
     if path.nil?
       # モジュール名を取得
-      module_name = self.class.name.split('::').first
-      class_name = self.class.name.split('::').last
+      module_name = self.class.name.split("::").first
+      class_name = self.class.name.split("::").last
       log_path = "log/#{module_name}/#{class_name}"
     else
       log_path = "log/#{path}"
