@@ -1,6 +1,5 @@
 # TwitchのAPI連携を行うためのHelper
 module TwitchHelper
-
   # ストリーマー情報を取得する
   #
   # @return [Hash] ストリーマー情報
@@ -35,5 +34,4 @@ module TwitchHelper
     token_storage.expired_at = Time.now + token[:expires_in].to_i
     token_storage.save!
   end
-
 end
