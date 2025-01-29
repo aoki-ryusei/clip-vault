@@ -18,7 +18,7 @@
 #
 FactoryBot.define do
   factory :streamer do
-    id { 2143312321}
+    id { 2143312321 }
     code { "streamer_code" }
     name { "streamer_name" }
     description { "MyString" }

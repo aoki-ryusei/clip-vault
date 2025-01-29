@@ -1,5 +1,5 @@
-require 'net/http'
-require 'uri'
+require "net/http"
+require "uri"
 
 module TwitchApi
   # 認証情報
@@ -18,20 +18,21 @@ module TwitchApi
       request_body = URI.encode_www_form(params)
 
       http = Net::HTTP.new(url.host, url.port)
-      http.use_ssl = (url.scheme == 'https')
+      http.use_ssl = (url.scheme == "https")
       request = Net::HTTP::Post.new(url.path)
-      request['Content-Type'] = 'application/x-www-form-urlencoded'
+      request["Content-Type"] = "application/x-www-form-urlencoded"
       request.body = request_body
       response = http.request(request)
       log_debug("[request] url: #{url}, method: #{request.method}, path: #{request.path}, body: #{request.body}")
       if !response.is_a?(Net::HTTPSuccess)
         response_json = JSON.parse(response.body)
-        log_error("[response] url: #{url}, code: #{response.code}, body: #{response_json.to_s}")
+        log_error("[response] url: #{url}, code: #{response.code}, body: #{response_json}")
         return JSON.parse(response_json)
       end
       response_json = JSON.parse(response.body)
-      log_debug("[response] url: #{url}, code: #{response.code}, body: #{response_json.to_s}")
-      return {
+      log_debug("[response] url: #{url}, code: #{response.code}, body: #{response_json}")
+
+      {
         access_token: response_json["access_token"],
         expires_in: response_json["expires_in"]
       }
@@ -59,12 +60,13 @@ module TwitchApi
       log_debug("[request] url: #{url}, method: #{request.method}, path: #{request.path}, body: #{request.body}")
       if !response.is_a?(Net::HTTPSuccess)
         response_json = JSON.parse(response.body)
-        log_error("[response] url: #{url}, code: #{response.code}, body: #{response_json.to_s}")
+        log_error("[response] url: #{url}, code: #{response.code}, body: #{response_json}")
         return JSON.parse(response_json)
       end
       response_json = JSON.parse(response.body)
-      log_debug("[response] url: #{url}, code: #{response.code}, body: #{response_json.to_s}")
-      return {
+      log_debug("[response] url: #{url}, code: #{response.code}, body: #{response_json}")
+
+      {
         streamers: response_json["data"]
       }
     end
