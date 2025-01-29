@@ -71,4 +71,37 @@ module TwitchApi
       }
     end
   end
+
+  class Video
+    def get(streamer_id, period, token, cursor = nil)
+      url = URI.parse(ENV.fetch("TWITCH_GET_VIDEO_URL"))
+      url.query = URI.encode_www_form([
+        ["user_id", streamer_id],
+        ["period", period],
+        # TODO: 100に変更する
+        ["first", "1"],
+        ["after", cursor]
+      ])
+
+      http = Net::HTTP.new(url.host, url.port)
+      http.use_ssl = (url.scheme == "https")
+      request = Net::HTTP::Get.new(url)
+      # Bearer認証のトークンを付与
+      request["Authorization"] = "Bearer #{token}"
+      request["Client-Id"] = ENV.fetch("TWITCH_CLIENT_ID")
+      response = http.request(request)
+      log_debug("[request] url: #{url}, method: #{request.method}, path: #{request.path}, body: #{request.body}")
+      if !response.is_a?(Net::HTTPSuccess)
+        response_json = JSON.parse(response.body)
+        log_error("[response] url: #{url}, code: #{response.code}, body: #{response_json}")
+        return JSON.parse(response_json)
+      end
+      response_json = JSON.parse(response.body)
+      log_debug("[response] url: #{url}, code: #{response.code}, body: #{response_json}")
+      {
+        videos: response_json["data"],
+        cursor: response_json["pagination"]["cursor"]
+      }
+    end
+  end
 end
