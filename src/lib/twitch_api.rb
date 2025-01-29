@@ -6,7 +6,7 @@ module TwitchApi
   class Auth
     include Logging
     # 認証情報を取得する
-    # 
+    #
     # @return [Hash] 認証情報
     def get
       url = URI.parse(ENV.fetch("TWITCH_GET_TOKEN_URL"))
@@ -42,12 +42,12 @@ module TwitchApi
   class Streamer
     include Logging
     # ストリーマー情報を取得する
-    # 
+    #
     # @param [String] streamer_codes ストリーマーコード
     # @return [Hash] ストリーマー情報
     def get(streamer_codes, token)
       url = URI.parse(ENV.fetch("TWITCH_GET_USER_URL"))
-      url.query = URI.encode_www_form(streamer_codes.map { |login| ["login", login] })
+      url.query = URI.encode_www_form(streamer_codes.map { |login| [ "login", login ] })
 
       http = Net::HTTP.new(url.host, url.port)
       http.use_ssl = (url.scheme == "https")
@@ -65,7 +65,7 @@ module TwitchApi
       response_json = JSON.parse(response.body)
       log_debug("[response] url: #{url}, code: #{response.code}, body: #{response_json.to_s}")
       return {
-        streamers: response_json["data"],
+        streamers: response_json["data"]
       }
     end
   end

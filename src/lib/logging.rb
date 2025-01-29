@@ -1,5 +1,5 @@
 module Logging
-  require 'logger'
+  require "logger"
 
   def log_info(message, path = nil)
     set_logger path

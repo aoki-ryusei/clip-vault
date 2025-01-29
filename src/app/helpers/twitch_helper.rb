@@ -2,7 +2,7 @@
 module TwitchHelper
 
   # ストリーマー情報を取得する
-  # 
+  #
   # @return [Hash] ストリーマー情報
   def get_streamers(streamer_codes)
     token = get_token
@@ -13,7 +13,7 @@ module TwitchHelper
 
   private
   # titchの認証情報を返す
-  # 
+  #
   # @return String 認証情報
   def get_token
     token_storage = TokenStorage.find_or_initialize_by(name: "twitch")
@@ -22,9 +22,9 @@ module TwitchHelper
     end
     token_storage.token
   end
-    
+
   # 認証情報を保存する
-  # 
+  #
   # @param [TokenStorage] token_storage 認証情報
   # @return void
   def store_token(token_storage)
