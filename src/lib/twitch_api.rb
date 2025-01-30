@@ -76,11 +76,11 @@ module TwitchApi
     def get(streamer_id, period, token, cursor = nil)
       url = URI.parse(ENV.fetch("TWITCH_GET_VIDEO_URL"))
       url.query = URI.encode_www_form([
-        ["user_id", streamer_id],
-        ["period", period],
+        [ "user_id", streamer_id ],
+        [ "period", period ],
         # TODO: 100に変更する
-        ["first", "1"],
-        ["after", cursor]
+        [ "first", "1" ],
+        [ "after", cursor ]
       ])
 
       http = Net::HTTP.new(url.host, url.port)
