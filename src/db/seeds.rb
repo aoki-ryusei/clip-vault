@@ -19,5 +19,5 @@ Game.create!([
   { id: 33214, name: "Fortnite", image_url: "https://static-cdn.jtvnw.net/ttv-boxart/33214-{width}x{height}.jpg", igdb_id: 1905 },
   { id: 491168, name: "Clash Royale", image_url: "https://static-cdn.jtvnw.net/ttv-boxart/491168_IGDB-{width}x{height}.jpg", igdb_id: 15707 },
   { id: 515025, name: "Overwatch 2", image_url: "https://static-cdn.jtvnw.net/ttv-boxart/515025-{width}x{height}.jpg", igdb_id: 125174 },
-  { id: 55453844, name: "Street Fighter 6", image_url: "https://static-cdn.jtvnw.net/ttv-boxart/55453844_IGDB-{width}x{height}.jpg", igdb_id: 191692 },
+  { id: 55453844, name: "Street Fighter 6", image_url: "https://static-cdn.jtvnw.net/ttv-boxart/55453844_IGDB-{width}x{height}.jpg", igdb_id: 191692 }
 ])
