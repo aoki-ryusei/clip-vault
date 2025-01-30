@@ -4,10 +4,28 @@ module TwitchHelper
   #
   # @return [Hash] ストリーマー情報
   def get_streamers(streamer_codes)
-    token = get_token
-    streamers = TwitchApi::Streamer.new
-    response = streamers.get(streamer_codes, token)
+    streamersApi = TwitchApi::Streamer.new
+    response = streamersApi.get(streamer_codes, get_token)
     response
+  end
+
+  def get_videos(streamer_id, period)
+    videos = []
+    token = get_token
+    videosApi = TwitchApi::Video.new
+    response = videosApi.get(streamer_id, period, token)
+    videos.concat(response[:videos])
+    last = false
+    while last == false do
+      response = videosApi.get(streamer_id, period, token, response[:cursor])
+      videos.concat(response[:videos])
+      #  TODO: 回しすぎないように2回まで回す
+      last = true
+      if response[:cursor].nil?
+        last = true
+      end
+    end
+    videos
   end
 
   private

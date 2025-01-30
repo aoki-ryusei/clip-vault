@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_29_092102) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_29_150455) do
   create_table "streamers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "code"
     t.string "name"
@@ -30,4 +30,21 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_29_092102) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "videos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "streamer_id", null: false
+    t.string "title"
+    t.string "description"
+    t.datetime "video_created_at"
+    t.datetime "video_published_at"
+    t.string "url"
+    t.string "thumbnail_url"
+    t.integer "view_count"
+    t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["streamer_id"], name: "index_videos_on_streamer_id"
+  end
+
+  add_foreign_key "videos", "streamers"
 end
